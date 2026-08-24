@@ -16,8 +16,13 @@ export class FaceSnape {
     removeSnap() {
         this.snaps--;
     }
-    
+
     setLocation(location: string): void {
         this.location = location;
+    }
+
+    withLocation(location: string): FaceSnape {
+        this.setLocation(location);
+        return this;
     }
 }
