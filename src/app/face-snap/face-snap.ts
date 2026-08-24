@@ -4,12 +4,7 @@ import { DatePipe, NgClass, NgStyle, TitleCasePipe } from '@angular/common';
 
 @Component({
     selector: 'app-face-snap',
-    imports: [
-        NgStyle,
-        NgClass,
-        TitleCasePipe,
-        DatePipe
-    ],
+    imports: [NgStyle, NgClass, TitleCasePipe, DatePipe],
     templateUrl: './face-snap.html',
     styleUrl: './face-snap.scss',
 })
