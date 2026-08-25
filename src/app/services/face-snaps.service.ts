@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FaceSnape } from '../models/face-snap';
+import { faceSnapType } from '../models/face-snap.type';
 
 @Injectable({
     providedIn: 'root',
@@ -19,7 +20,7 @@ export class FaceSnapsService {
             new Date('2024-03-15'),
             160,
             'https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg',
-        ).withLocation("Au lycée"),
+        ).withLocation('Au lycée'),
         new FaceSnape(
             'Lucas Dubois',
             'Mon collègue de promo, passionné de code et de café ☕',
@@ -31,5 +32,13 @@ export class FaceSnapsService {
 
     getFaceSnaps(): FaceSnape[] {
         return [...this.faceSnaps];
+    }
+
+    snapFaceSnapById(faceSnapId: string, snapType: faceSnapType): void {
+        const foundSnapFace = this.faceSnaps.find((faceSnap) => faceSnap.id == faceSnapId);
+        if (!foundSnapFace) {
+            throw new Error('SnapFace not found!');
+        }
+        foundSnapFace.snap(snapType);
     }
 }
