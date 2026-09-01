@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FaceSnape } from '../models/face-snap';
 import { FaceSnap } from '../face-snap/face-snap';
 import { FaceSnapsService } from '../services/face-snaps.service';
+import { interval, take, tap } from 'rxjs';
 
 @Component({
     selector: 'app-face-snap-list',
@@ -12,9 +13,14 @@ import { FaceSnapsService } from '../services/face-snaps.service';
 export class FaceSnapList implements OnInit {
     faceSnaps!: FaceSnape[];
 
-    constructor(private faceSnapsService: FaceSnapsService) {}
+    constructor(private faceSnapsService: FaceSnapsService) { }
 
     ngOnInit(): void {
         this.faceSnaps = this.faceSnapsService.getFaceSnaps();
+
+        interval(1000).pipe(
+            take(2),
+            tap(console.log)
+        ).subscribe();
     }
 }
