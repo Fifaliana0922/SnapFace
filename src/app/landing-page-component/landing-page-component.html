@@ -1,6 +1,13 @@
 <div class="landing-block">
-    <img src="assets/snapFace-logo.png" alt="Snapface logo">
+    <form #emailForm="ngForm" (ngSubmit)="onEmailSubmit(emailForm)">
+        <label for="emailInput">Veuillez vous inscrire à notre newsletter!</label>
+        <input type="email" id="emailInput" [(ngModel)]="userEmail" name="userEmail" />
+        <button type="submit">OK!</button>
+    </form>
+    <img src="assets/snapFace-logo.png" alt="Snapface logo" />
     <div class="landing-links">
-        <button routerLink="faceSnaps" (click)="navigateToFaceSnaps()">Continuer vers Snapface</button>
+        <button routerLink="faceSnaps" (click)="navigateToFaceSnaps()">
+            Continuer vers Snapface
+        </button>
     </div>
 </div>
