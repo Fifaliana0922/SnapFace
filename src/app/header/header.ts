@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
     selector: 'app-header',
@@ -7,4 +7,10 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
     templateUrl: './header.html',
     styleUrl: './header.scss',
 })
-export class Header {}
+export class Header {
+    router = inject(Router);
+
+    onAddFaceSnap(): void {
+        this.router.navigateByUrl('/create');
+    }
+}

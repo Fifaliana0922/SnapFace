@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-landing-page-component',
-    imports: [RouterLink, FormsModule],
+    imports: [
+        RouterLink,
+        FormsModule,
+        ReactiveFormsModule
+    ],
     templateUrl: './landing-page-component.html',
     styleUrl: './landing-page-component.scss',
 })
