@@ -17,12 +17,8 @@ export class FaceSnapsService {
         return this.httpClient.get<FaceSnape[]>(`http://localhost:3000/facesnaps`);
     }
 
-    getFaceSnapById(faceSnapId: string): FaceSnape {
-        const snapFaceId = this.faceSnaps.find((faceSnap) => faceSnap.id == faceSnapId);
-        if (!snapFaceId) {
-            throw new Error('SnapFace not found!');
-        }
-        return snapFaceId;
+    getFaceSnapById(faceSnapId: number): Observable<FaceSnape> {
+        return this.httpClient.get<FaceSnape>(`http://localhost:3000/facesnaps/${faceSnapId}`)
     }
 
     addFaceSnap(formValue: { title: string, description: string, imageUrl: string, location?: string, }): void {
@@ -40,11 +36,11 @@ export class FaceSnapsService {
         this.faceSnaps.push(faceSnap);
     }
 
-    snapFaceSnapById(faceSnapId: string, snapType: faceSnapType): void {
+    snapFaceSnapById(faceSnapId: number, snapType: faceSnapType): void {
         const foundSnapFace = this.getFaceSnapById(faceSnapId);
         if (!foundSnapFace) {
             throw new Error('SnapFace not found!');
         }
-        foundSnapFace.snap(snapType);
+        // foundSnapFace.snap(snapType);
     }
 }

@@ -12,13 +12,11 @@ import { AsyncPipe } from '@angular/common';
     styleUrl: './face-snap-list.scss',
 })
 export class FaceSnapList implements OnInit {
-    faceSnaps !: FaceSnape[];
     faceSnaps$ !: Observable<FaceSnape[]>;
 
     constructor(private faceSnapsService: FaceSnapsService) { }
 
     ngOnInit(): void {
-        // this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
         this.faceSnaps$ = this.faceSnapsService.getAllFaceSnaps();
     }
 }
