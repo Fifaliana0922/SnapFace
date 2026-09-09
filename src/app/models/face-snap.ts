@@ -21,9 +21,9 @@ export class FaceSnape {
     }
 
     snap(snapType: faceSnapType) {
-        if (snapType == 'addSnap') {
+        if (snapType == 'snap') {
             this.addSnap();
-        } else if (snapType == 'removeSnap') {
+        } else if (snapType == 'unsnap') {
             this.removeSnap();
         }
     }

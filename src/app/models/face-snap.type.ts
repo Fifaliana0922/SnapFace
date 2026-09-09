@@ -1,1 +1,1 @@
-export type faceSnapType = 'addSnap' | 'removeSnap';
+export type faceSnapType = 'snap' | 'unsnap';
